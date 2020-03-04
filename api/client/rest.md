@@ -313,6 +313,15 @@ For example, to find the records where field _status_ is not equal to **active**
 GET /messages?status[$ne]=active
 ```
 
+The find API allows the use of $limit, $skip, $sort, and $select in the query. These special parameters can be passed directly inside the query object:
+
+```
+// Find all recipes that include salt, limit to 10, only include name field.
+{"read":"1", "$limit":10, "$select": ["name"] } } // JSON
+
+GET /messages?read=1&$limit=10&$select[]=name // HTTP
+```
+
 More information about the possible parameters for official database adapters can be found [in the database querying section](../databases/querying.md).
 
 ### get
